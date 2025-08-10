@@ -18,8 +18,11 @@ services:
       # Certificate resolvers for Let's Encrypt
       - --certificatesresolvers.letsencrypt.acme.email=mt.bui.fr@gmail.com
       - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
-      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
-      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge=true
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge.cloudflare.email=mt.bui.fr@gmail.com
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge.cloudflare.apikey=${CF_API_KEY:-}
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge.cloudflare.proxied=true
       # Cloudflare settings
       - --entrypoints.websecure.http.tls.options=cloudflare@file
       # Logging
