@@ -15,6 +15,8 @@ services:
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
       - --providers.docker.network=traefik
+      - --providers.file.directory=/etc/traefik/dynamic
+      - --providers.file.watch=true
       # Certificate resolvers for Let's Encrypt
       - --certificatesresolvers.letsencrypt.acme.email=mt.bui.fr@gmail.com
       - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
