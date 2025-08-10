@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Redis for queue management
   redis:
@@ -18,7 +16,7 @@ services:
 
   # n8n main application
   n8n:
-    image: docker.n8n.io/n8nio/n8n:latest
+    image: docker.n8n.io/n8nio/n8n:${N8N_VERSION:-latest}
     container_name: n8n-main
     restart: unless-stopped
     environment:
@@ -46,7 +44,9 @@ services:
       # Security
       - N8N_SECURE_COOKIE=true
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
-      
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_EXPRESS_TRUST_PROXY=true
+
       # Other settings
       - N8N_METRICS=true
       - N8N_LOG_LEVEL=info
@@ -81,7 +81,7 @@ services:
 
   # n8n worker (scalable)
   n8n-worker:
-    image: docker.n8n.io/n8nio/n8n:latest
+    image: docker.n8n.io/n8nio/n8n:${N8N_VERSION:-latest}
     restart: unless-stopped
     command: worker
     environment:

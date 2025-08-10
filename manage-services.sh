@@ -24,7 +24,7 @@ show_help() {
 	echo " --postgres 		Manage PostgreSQL database"
 	echo " --n8n			Manage n8n workflow automation"
 	echo " --dbeaver 		Manage DBeaver (included with PostgreSQL)"
-        echo " --all 			Manage all services"
+    echo " --all 			Manage all services"
 	echo ""
 	echo -e "${YELLOW}Actions:${NC}"
 	echo " up			Start services (default)"
@@ -41,11 +41,11 @@ show_help() {
 	echo " --foreground  		Run in foreground (don't detach)"
 	echo ""
 	echo -e "${YELLOW}Examples:${NC}"
-        echo " $0 --traefik up 		# Start Traefik"
-        echo " $0 --postgres --n8n up  	# Start PostgreSQL and n8n"
-        echo " $0 --all down            # Stop all services"
-    	echo " $0 --n8n logs            # Show n8n logs"
-    	echo " $0 --all status          # Show status of all services"
+    echo " $0 --traefik up 		# Start Traefik"
+    echo " $0 --postgres --n8n up  	# Start PostgreSQL and n8n"
+    echo " $0 --all down            # Stop all services"
+    echo " $0 --n8n logs            # Show n8n logs"
+    echo " $0 --all status          # Show status of all services"
 }
 
 # Function to log messages
